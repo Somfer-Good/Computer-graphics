@@ -8,3 +8,7 @@ __pycache__
 #Кеш лабы_2
 ./laba_2/__pycache__
 ./laba_2/.idea
+
+#Кеш лабы_3
+./laba_3/__pycache__
+./laba_3/.idea
