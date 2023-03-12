@@ -1,0 +1,6 @@
+.idea
+__pycache__
+
+#Кеш лабы_1
+./laba_1/__pycache__
+./laba_1/.idea
