@@ -4,3 +4,7 @@ __pycache__
 #Кеш лабы_1
 ./laba_1/__pycache__
 ./laba_1/.idea
+
+#Кеш лабы_2
+./laba_2/__pycache__
+./laba_2/.idea
