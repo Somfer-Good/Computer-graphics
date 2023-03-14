@@ -1,6 +1,28 @@
 import matplotlib.pyplot as plt
 
+def ShowX(y): #1
+    return(-y)
+
+def ShowY(x): #2
+    return(-x)
+
+def ShowXY(x,y): #3
+    return [y,x]
+
+def CheckQuarter(x,y):
+        if x * y > 0:
+            if x > 0:  
+                return 1
+            else:
+                return 3
+        else:
+            if y < 0:
+                return 4
+            else:
+                return 2
+
 def bresenhamLine(x1,y1,x2,y2):
+    
     dx = x2 - x1
     dy = y2 - y1
 
@@ -45,16 +67,14 @@ def bresenhamLine(x1,y1,x2,y2):
 
     return pointsX,pointsY
 
-def graphLine(x1,y1,x2,y2):
-    coordX,сoordY=bresenhamLine(x1,y1,x2,y2) 
+def graphLine(coordX,сoordY):
     plt.close('all')
     fig, ax = plt.subplots()
     plt.xlim(-10, 10)
     plt.ylim(-10, 10)
     plt.grid()
-    ax.plot([x1,x2],[y1,y2], c='b')
     ax.scatter(coordX,сoordY, c='r')
-    plt.show(block=False)
+    plt.show()
 
 def bresenhamCricle(xc,yc,r):
     сoordX=[]
@@ -82,7 +102,7 @@ def graphCricle(x,y,r):
     ax.scatter(сoordX,сoordY, c='r')
     ax.set_aspect( 1 )
     ax.add_artist( Drawing_colored_circle )
-    plt.show(block=False)
+    plt.show()
 
 def menu():
     print('1. Отрезок')
