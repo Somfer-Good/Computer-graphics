@@ -1,13 +1,5 @@
 import matplotlib.pyplot as plt
 
-def ShowX(y): #1
-    return(-y)
-
-def ShowY(x): #2
-    return(-x)
-
-def ShowXY(x,y): #3
-    return [y,x]
 
 def CheckQuarter(x,y):
         if x * y > 0:
