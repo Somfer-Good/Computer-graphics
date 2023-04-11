@@ -50,7 +50,7 @@ def bresenhamLine(x1,y1,x2,y2):
 def PixelFill(x,y,fillx,filly,camera,ax):
     for i in range(0,len(fillx)):
         if fillx[i]==x and filly[i]==y:
-            print('в окно нахуй')
+            print('Выход =)')
             return
     fillx.append(x)
     filly.append(y)
