@@ -4,11 +4,11 @@ import utils
 
 def SutherlandCohen():
 
-    print("window:")
+    print("Фигура:")
     w = [int(i) for i in input().split()]
-    print("start segment:")
+    print("Начало отрезка:")
     s_start = [int(i) for i in input().split()]
-    print("end segment:")
+    print("Конец отрезка:")
     s_end = [int(i) for i in input().split()]
 
     Ax = w[0]
@@ -60,13 +60,11 @@ def SutherlandCohen():
 
             x = (B * Ay - C) / A
             p4 = [x, Ay]
-            #print(p1, p2, p3, p4)
             ans = []
             ans = utils.provSegment(p1, ans, s_start, s_end, w)
             ans = utils.provSegment(p2, ans, s_start, s_end, w)
             ans = utils.provSegment(p3, ans, s_start, s_end, w)
             ans = utils.provSegment(p4, ans, s_start, s_end, w)
-            #print(ans)
             if len(ans) > 2:
                 if ans[0][0] == ans[1][0] and ans[0][1] == ans[1][1]:
                     ans = [ans[0], ans[2]]

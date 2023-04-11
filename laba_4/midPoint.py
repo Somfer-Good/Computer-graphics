@@ -6,7 +6,6 @@ import utils
 def recMidPoint(mas1, st, se):
 
     d = utils.provLocation(mas1, st, se)
-    #print(d)
     len_seg = np.sqrt((st[0]-se[0])*(st[0]-se[0])+(st[1]-se[1])*(st[1]-se[1]))
 
     if len_seg < 0.001:
@@ -27,11 +26,11 @@ def recMidPoint(mas1, st, se):
 
 
 def midPoint():
-    print("window:")
+    print("Фигура:")
     w = [int(i) for i in input().split()]
-    print("start segment:")
+    print("Начало отрезка:")
     s_start = [int(i) for i in input().split()]
-    print("end segment:")
+    print("Конец отрезка:")
     s_end = [int(i) for i in input().split()]
 
     utils.window(w)

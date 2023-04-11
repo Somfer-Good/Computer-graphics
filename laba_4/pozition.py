@@ -35,5 +35,4 @@ def prov_location(mas, st, se):
                 u = 2
         if u != 2:
             u = 3
-    #print(u)
     return u
