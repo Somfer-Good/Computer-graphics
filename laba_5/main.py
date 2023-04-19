@@ -12,7 +12,7 @@ def main():
 
     plt.xlim(-20, 20)
     plt.ylim(-20, 20)
-    f=data.FIGURA
+    f=data.J
     fx,fy=[],[]
     f=f.split(' ')
     for i in range(0,len(f),2):
@@ -30,10 +30,12 @@ def main():
             ry.append(tmpY[j])
     camera.snap()
     zx,zy=data.ZATRAVKA
-    rx,ry=utils.PixelFill(zx,zy,rx,ry,camera,ax)
+    fillx,filly=[],[]
+    fillx,filly=utils.PixelFill(zx,zy,fx,fy,rx,ry,fillx,filly,camera,ax)
     camera.snap()
     ax.scatter(rx,ry,c='red')
+    ax.scatter(fillx,filly,c='red')
     ax.plot(fx,fy,c='blue')
     camera.snap()
     animation = camera.animate()
-    animation.save('algos.gif')
+    animation.save('J.gif')

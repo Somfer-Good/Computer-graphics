@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-from celluloid import Camera
 
 def bresenhamLine(x1,y1,x2,y2):
     
@@ -47,17 +45,49 @@ def bresenhamLine(x1,y1,x2,y2):
 
     return pointsX,pointsY
 
-def PixelFill(x,y,fillx,filly,camera,ax):
+def PixelFill(x,y,fx,fy,rx,ry,fillx,filly,camera,ax):
+    if inFill(x,y,fillx,filly):
+        return
+    fillx.append(x)
+    filly.append(y)
+    ax.plot(fx,fy,c='blue')
+    ax.scatter(rx,ry,c='red')
+    ax.scatter(fillx,filly,c='red')
+    camera.snap()
+    xl=x-1
+    while not inFill(xl,y,rx,ry):
+        fillx.append(xl)
+        filly.append(y)
+        ax.plot(fx,fy,c='blue')
+        ax.scatter(rx,ry,c='red')
+        ax.scatter(fillx,filly,c='red')
+        camera.snap()
+        xl-=1
+    xr=x+1
+    while not inFill(xr,y,rx,ry):
+        fillx.append(xr)
+        filly.append(y)
+        ax.plot(fx,fy,c='blue')
+        ax.scatter(rx,ry,c='red')
+        ax.scatter(fillx,filly,c='red')
+        camera.snap()
+        xr+=1
+    ax.plot(fx,fy,c='blue')
+    ax.scatter(rx,ry,c='red')
+    ax.scatter(fillx,filly,c='red')
+    camera.snap()
+    for i in range(xl+1,xr):
+        if not inFill(i,y+1,rx,ry):
+            PixelFill(i,y+1,fx,fy,rx,ry,fillx,filly,camera,ax)
+        if not inFill(i,y-1,rx,ry):
+            PixelFill(i,y-1,fx,fy,rx,ry,fillx,filly,camera,ax)
+    return fillx,filly
+
+
+def inFill(x,y,fillx,filly):
     for i in range(0,len(fillx)):
         if fillx[i]==x and filly[i]==y:
             print('Выход =)')
-            return
-    fillx.append(x)
-    filly.append(y)
-    ax.scatter(fillx,filly,c='red')
-    camera.snap()
-    PixelFill(x+1,y,fillx,filly,camera,ax)
-    PixelFill(x,y+1,fillx,filly,camera,ax)
-    PixelFill(x-1,y,fillx,filly,camera,ax)
-    PixelFill(x,y-1,fillx,filly,camera,ax)
-    return fillx,filly
+            return True
+    return False
+    
